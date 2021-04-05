@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 // react plugin for creating charts
 import ChartistGraph from "react-chartist";
 // @material-ui/core
@@ -43,6 +43,15 @@ import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js"
 const useStyles = makeStyles(styles);
 
 export default function Dashboard() {
+  var usb_tab="USB - connected";
+  var network_tab="NETWORK";
+  var serial_tab="SERIAL";
+  
+
+  useEffect(() => {
+   
+  }, []);
+
   const classes = useStyles();
   return (
     <div>
@@ -53,7 +62,7 @@ export default function Dashboard() {
             headerColor="primary"
             tabs={[
               {
-                tabName: "USB ",
+                tabName: usb_tab,
                 tabIcon: BugReport,
                 tabContent: (
                   <Tasks
@@ -64,7 +73,7 @@ export default function Dashboard() {
                 )
               },
               {
-                tabName: "NETWORK",
+                tabName: network_tab,
                 tabIcon: Code,
                 tabContent: (
                   <Tasks
@@ -75,7 +84,7 @@ export default function Dashboard() {
                 )
               },
               {
-                tabName: "SERIAL",
+                tabName: serial_tab,
                 tabIcon: Cloud,
                 tabContent: (
                   <Tasks

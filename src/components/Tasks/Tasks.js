@@ -27,11 +27,23 @@ const useStyles = makeStyles(styles);
 
 
 export default function Dropdown(props) {
-  console.log("s:",props.tasks)
+
+  const [show, hid] = React.useState(0);
+  
+  const onChange =(value)=> {
+    hid(1);
+  }
   const USB_VIEW =()=>{
     return (
       <>
       <GridContainer>
+      <GridItem xs={12} sm={6} md={3}>
+        <p>USB LIST</p>
+      <Select options={options} onChange={onChange}/>
+      </GridItem>
+
+      {show == 1 &&
+      <> 
       <GridItem xs={12} sm={6} md={3}>
         <p>Interface Number</p>
       <Select options={options} />
@@ -40,6 +52,7 @@ export default function Dropdown(props) {
       <p>Output Endpoint</p>
       <Select options={options} />
       </GridItem>
+      </>}
       </GridContainer>
       <p></p>
      
